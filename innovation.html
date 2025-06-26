@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Innovation Hub - Showcase and discover innovative ideas from our community">
+  <title>Innovation Hub | Showcase Your Creations</title>
+  <link rel="stylesheet" href="/css/innovation.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header with improved accessibility -->
+  <header class="main-header">
+    <a href="index.html" class="home-icon" aria-label="Home">
+      <i class="fas fa-home"></i>
+    </a>
+    <nav class="top-links" aria-label="Main navigation">
+      <a href="research.html" class="nav-link">
+        <i class="fas fa-flask"></i> Research
+      </a>
+      <a href="ipr.html" class="nav-link">
+        <i class="fas fa-copyright"></i> IPR
+      </a>
+      <a href="innovation.html" class="nav-link active">
+        <i class="fas fa-lightbulb"></i> Innovation
+      </a>
+      <a href="startup.html" class="nav-link">
+        <i class="fas fa-rocket"></i> Startup
+      </a>
+    </nav>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="popup-menu" aria-hidden="true">
+      <a href="signin.html" class="popup-link">
+        <i class="fas fa-sign-in-alt"></i> Sign In
+      </a>
+      <a href="about.html" class="popup-link">
+        <i class="fas fa-info-circle"></i> About Us
+      </a>
+      <a href="contact.html" class="popup-link">
+        <i class="fas fa-envelope"></i> Contact
+      </a>
+    </div>
+  </header>
+
+  <!-- Theme Toggle with better semantics -->
+  <div class="theme-toggle">
+    <button id="themeToggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i> 
+    </button>
+  </div>
+
+  <!-- Innovation Hub Intro with decorative elements -->
+  <section class="hub-intro">
+    <div class="intro-content">
+      <h1 class="intro-title">Innovation Hub</h1>
+      <p class="intro-subtitle">Showcase and discover innovative ideas from our community</p>
+      <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+    <div class="intro-decoration">
+      <div class="deco-circle"></div>
+      <div class="deco-triangle"></div>
+      <div class="deco-square"></div>
+    </div>
+  </section>
+
+  <!-- Pagination with improved accessibility -->
+  <div class="pagination" id="pagination" role="navigation" aria-label="Innovation pagination">
+    <!-- Will be populated by JS -->
+  </div>
+
+  <!-- Upload Innovation with better form structure -->
+  <section class="upload-section">
+    <div class="upload-container">
+      <h2 class="upload-title">
+        <i class="fas fa-cloud-upload-alt"></i> Upload Your Innovation
+      </h2>
+      <form id="uploadForm" class="innovation-form">
+        <div class="form-group">
+          <label for="title">Innovation Title</label>
+          <input type="text" id="title" placeholder="e.g. Solar-Powered Drone" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="author">Author Name</label>
+          <input type="text" id="author" placeholder="Your name" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="domain">Domain</label>
+          <input type="text" id="domain" placeholder="e.g. Renewable Energy" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="team">Team Name</label>
+          <input type="text" id="team" placeholder="Your team name (if any)" />
+        </div>
+        
+        <div class="form-group full-width">
+          <label for="description">Description</label>
+          <textarea id="description" placeholder="Briefly describe your innovation..." rows="4"></textarea>
+        </div>
+        
+        <div class="form-group full-width">
+          <label for="imageUpload">Upload Image</label>
+          <input type="file" id="imageUpload" accept="image/*" />
+        </div>
+        
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> Submit Innovation
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Modal with enhanced structure -->
+  <div class="modal" id="innovationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()" aria-label="Close modal">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="modal-grid">
+        <div class="modal-image-container">
+          <img id="modalImage" src="" alt="Innovation Image" class="modal-image" />
+          <div class="image-overlay">
+            <button class="zoom-btn" aria-label="Zoom image">
+              <i class="fas fa-search-plus"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="modal-text">
+          <h2 id="modalTitle" class="modal-title"></h2>
+          <div class="meta-info">
+            <p class="meta-item">
+              <i class="fas fa-user"></i> <span id="modalAuthor"></span>
+            </p>
+            <p class="meta-item">
+              <i class="fas fa-calendar-alt"></i> <span id="modalDate"></span>
+            </p>
+            <p class="meta-item">
+              <i class="fas fa-tag"></i> <span id="modalDomain"></span>
+            </p>
+            <p class="meta-item">
+              <i class="fas fa-users"></i> <span id="modalTeam"></span>
+            </p>
+          </div>
+          
+          <div class="modal-description">
+            <h3>Description</h3>
+            <p id="modalDescription"></p>
+          </div>
+          
+          <div class="modal-actions">
+            <button class="action-btn like-btn">
+              <i class="fas fa-thumbs-up"></i> Like
+            </button>
+            <button class="action-btn share-btn">
+              <i class="fas fa-share-alt"></i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer with improved structure -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <div class="link-group">
+          <h4 class="footer-heading">
+            <i class="fas fa-link"></i> Quick Links
+          </h4>
+          <ul class="footer-list">
+            <li><a href="research.html"><i class="fas fa-arrow-right"></i> Research</a></li>
+            <li><a href="ipr.html"><i class="fas fa-arrow-right"></i> IPR</a></li>
+            <li><a href="startup.html"><i class="fas fa-arrow-right"></i> Startup</a></li>
+          </ul>
+        </div>
+        
+        <div class="link-group">
+          <h4 class="footer-heading">
+            <i class="fas fa-book"></i> References
+          </h4>
+          <ul class="footer-list">
+            <li><a href="#"><i class="fas fa-arrow-right"></i> UGC</a></li>
+            <li><a href="#"><i class="fas fa-arrow-right"></i> NIRF</a></li>
+            <li><a href="#"><i class="fas fa-arrow-right"></i> AICTE</a></li>
+          </ul>
+        </div>
+        
+        <div class="link-group">
+          <h4 class="footer-heading">
+            <i class="fas fa-envelope"></i> Contact
+          </h4>
+          <ul class="footer-list">
+            <li><a href="#"><i class="fas fa-arrow-right"></i> About Us</a></li>
+            <li><a href="#"><i class="fas fa-arrow-right"></i> Support</a></li>
+            <li><a href="#"><i class="fas fa-arrow-right"></i> Map</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2025 Innovation Hub. All rights reserved.</p>
+      <div class="legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="innovation.js"></script>
+</body>
+</html>

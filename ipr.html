@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intellectual Property Rights | Innovation Portal</title>
+  <link rel="stylesheet" href="css/ipr.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script defer src="ipr.js"></script>
+  <title>Chart Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <a href="index.html" class="home-icon"><i class="fas fa-home"></i></a>
+    <div class="top-links">
+      <a href="AboutUs.html"><i class="fas fa-info-circle"></i> About Us</a>
+      <a href="SignIn.html" id="signInLink"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+      <button id="logoutButton" style="display:none; background:none; border:none; color:#fff; font-size:1rem; cursor:pointer;">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <nav class="popup-menu" id="popupMenu">
+      <a href="research.html"><i class="fas fa-flask"></i> Research</a>
+      <a href="ipr.html"><i class="fas fa-lightbulb"></i> IPR</a>
+      <a href="innovation.html"><i class="fas fa-rocket"></i> Innovation</a>
+      <a href="StartUp.html"><i class="fas fa-chart-line"></i> Startups</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Intellectual Property Rights</h1>
+      <p>Protecting and managing your innovations through patents, copyrights, and trademarks</p>
+      <div class="hero-buttons">
+        <a href="#submit-section" class="btn-primary">Submit IPR</a>
+        <a href="#resources" class="btn-secondary">Learn About IPR</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/Images/IPR-HERO.png" alt="IPR Protection Illustration">
+    </div>
+  </section>
+
+  <!-- Search Bar -->
+  <section class="search-section">
+    <div class="search-container">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchBar" placeholder="Search by IPR name, topic, domain, or inventor..." oninput="filterIPRCards()" />
+      <button class="advanced-search-btn">Advanced Filters <i class="fas fa-sliders-h"></i></button>
+    </div>
+    <div class="filter-tags">
+      <span class="filter-tag active">All</span>
+      <span class="filter-tag">Patents</span>
+      <span class="filter-tag">Copyrights</span>
+      <span class="filter-tag">Trademarks</span>
+      <span class="filter-tag">Published</span>
+      <span class="filter-tag">Pending</span>
+    </div>
+  </section>
+
+
+<!-- IPR Cards List -->
+<section class="ipr-list" id="staticIprList">
+<!-- IPR Card 1 -->
+<div class="ipr-card">
+  <div class="card-header">
+    <h3>Smart Traffic System</h3>
+    <span class="status-badge status-published"><i class="fas fa-check-circle"></i> Published</span>
+  </div>
+  <p class="card-domain"><i class="fas fa-tag"></i> <strong>Domain:</strong> AI & Transportation</p>
+  <p class="card-description">AI-powered traffic management system using deep learning to reduce congestion and emissions by 40% in urban areas.</p>
+  <div class="card-meta">
+    <span><i class="fas fa-user"></i> <strong>Inventor:</strong> Dr. A. Sinha</span>
+    <span><i class="fas fa-calendar-alt"></i> <strong>Filing:</strong> 2023-03-18</span>
+  </div>
+  <div class="card-footer">
+    <span><i class="fas fa-file-alt"></i> <strong>Patent #:</strong> IN20230123456</span>
+    <div class="card-actions">
+      <button class="action-btn view-details"><i class="fas fa-eye"></i> Details</button>
+      <button class="action-btn download-btn"><i class="fas fa-download"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- IPR Card 2 -->
+<div class="ipr-card">
+  <div class="card-header">
+    <h3>Energy-efficient HVAC</h3>
+    <span class="status-badge status-published"><i class="fas fa-check-circle"></i> Published</span>
+  </div>
+  <p class="card-domain"><i class="fas fa-tag"></i> <strong>Domain:</strong> Green Technology</p>
+  <p class="card-description">Hybrid solar-based air conditioning system with 60% reduced energy consumption and low-carbon output.</p>
+  <div class="card-meta">
+    <span><i class="fas fa-user"></i> <strong>Inventor:</strong> Prof. P. Ghosh</span>
+    <span><i class="fas fa-calendar-alt"></i> <strong>Filing:</strong> 2022-11-05</span>
+  </div>
+  <div class="card-footer">
+    <span><i class="fas fa-file-alt"></i> <strong>Patent #:</strong> IN20220199877</span>
+    <div class="card-actions">
+      <button class="action-btn view-details"><i class="fas fa-eye"></i> Details</button>
+      <button class="action-btn download-btn"><i class="fas fa-download"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- IPR Card 3 -->
+<div class="ipr-card">
+  <div class="card-header">
+    <h3>IoT Soil Sensor</h3>
+    <span class="status-badge status-filed"><i class="fas fa-clock"></i> Filed</span>
+  </div>
+  <p class="card-domain"><i class="fas fa-tag"></i> <strong>Domain:</strong> AgriTech</p>
+  <p class="card-description">Real-time soil moisture, pH, and nutrient analysis with 95% accuracy for precision farming applications.</p>
+  <div class="card-meta">
+    <span><i class="fas fa-user"></i> <strong>Inventor:</strong> M. Kumar</span>
+    <span><i class="fas fa-calendar-alt"></i> <strong>Filing:</strong> 2023-07-12</span>
+  </div>
+  <div class="card-footer">
+    <span><i class="fas fa-file-alt"></i> <strong>Patent #:</strong> IN20230145678</span>
+    <div class="card-actions">
+      <button class="action-btn view-details"><i class="fas fa-eye"></i> Details</button>
+      <button class="action-btn download-btn"><i class="fas fa-download"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- IPR Card 4 -->
+<div class="ipr-card">
+  <div class="card-header">
+    <h3>Blockchain Voting System</h3>
+    <span class="status-badge status-published"><i class="fas fa-check-circle"></i> Published</span>
+  </div>
+  <p class="card-domain"><i class="fas fa-tag"></i> <strong>Domain:</strong> Cybersecurity</p>
+  <p class="card-description">A secure, transparent blockchain-based voting platform with biometric authentication for digital governance.</p>
+  <div class="card-meta">
+    <span><i class="fas fa-user"></i> <strong>Inventor:</strong> S. Das</span>
+    <span><i class="fas fa-calendar-alt"></i> <strong>Filing:</strong> 2022-08-23</span>
+  </div>
+  <div class="card-footer">
+    <span><i class="fas fa-file-alt"></i> <strong>Patent #:</strong> IN20220122333</span>
+    <div class="card-actions">
+      <button class="action-btn view-details"><i class="fas fa-eye"></i> Details</button>
+      <button class="action-btn download-btn"><i class="fas fa-download"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- IPR Card 5 -->
+<div class="ipr-card">
+  <div class="card-header">
+    <h3>Low-cost 3D Printer</h3>
+    <span class="status-badge status-published"><i class="fas fa-check-circle"></i> Published</span>
+  </div>
+  <p class="card-domain"><i class="fas fa-tag"></i> <strong>Domain:</strong> Hardware & Design</p>
+  <p class="card-description">Open-source, compact 3D printer under $100 with 0.1mm precision for educational and prototyping use.</p>
+  <div class="card-meta">
+    <span><i class="fas fa-user"></i> <strong>Inventor:</strong> R. Roy</span>
+    <span><i class="fas fa-calendar-alt"></i> <strong>Filing:</strong> 2023-01-14</span>
+  </div>
+  <div class="card-footer">
+    <span><i class="fas fa-file-alt"></i> <strong>Patent #:</strong> IN20230187654</span>
+    <div class="card-actions">
+      <button class="action-btn view-details"><i class="fas fa-eye"></i> Details</button>
+      <button class="action-btn download-btn"><i class="fas fa-download"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- IPR Card 6 -->
+<div class="ipr-card">
+  <div class="card-header">
+    <h3>Smart Wearable Health Monitor</h3>
+    <span class="status-badge status-filed"><i class="fas fa-clock"></i> Filed</span>
+  </div>
+  <p class="card-domain"><i class="fas fa-tag"></i> <strong>Domain:</strong> Healthcare</p>
+  <p class="card-description">Non-invasive device monitoring 12 vital signs with AI-powered anomaly detection and emergency alerts.</p>
+  <div class="card-meta">
+    <span><i class="fas fa-user"></i> <strong>Inventor:</strong> Dr. T. Sharma</span>
+    <span><i class="fas fa-calendar-alt"></i> <strong>Filing:</strong> 2023-05-20</span>
+  </div>
+  <div class="card-footer">
+    <span><i class="fas fa-file-alt"></i> <strong>Patent #:</strong> IN20230234567</span>
+    <div class="card-actions">
+      <button class="action-btn view-details"><i class="fas fa-eye"></i> Details</button>
+      <button class="action-btn download-btn"><i class="fas fa-download"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- IPR Card 7 -->
+<div class="ipr-card">
+  <div class="card-header">
+    <h3>AI Code Debugger</h3>
+    <span class="status-badge status-published"><i class="fas fa-check-circle"></i> Published</span>
+  </div>
+  <p class="card-domain"><i class="fas fa-tag"></i> <strong>Domain:</strong> Software Tools</p>
+  <p class="card-description">Tool that uses machine learning to analyze, debug, and suggest optimizations for code in 15+ languages.</p>
+  <div class="card-meta">
+    <span><i class="fas fa-user"></i> <strong>Inventor:</strong> K. Nair</span>
+    <span><i class="fas fa-calendar-alt"></i> <strong>Filing:</strong> 2022-09-30</span>
+  </div>
+  <div class="card-footer">
+    <span><i class="fas fa-file-alt"></i> <strong>Patent #:</strong> IN20220123489</span>
+    <div class="card-actions">
+      <button class="action-btn view-details"><i class="fas fa-eye"></i> Details</button>
+      <button class="action-btn download-btn"><i class="fas fa-download"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- IPR Card 8 -->
+<div class="ipr-card">
+  <div class="card-header">
+    <h3>EcoBrick Construction</h3>
+    <span class="status-badge status-filed"><i class="fas fa-clock"></i> Filed</span>
+  </div>
+  <p class="card-domain"><i class="fas fa-tag"></i> <strong>Domain:</strong> Sustainable Building</p>
+  <p class="card-description">Biodegradable bricks with 80% agricultural waste content and plant-based polymers, 30% lighter than clay bricks.</p>
+  <div class="card-meta">
+    <span><i class="fas fa-user"></i> <strong>Inventor:</strong> L. Banerjee</span>
+    <span><i class="fas fa-calendar-alt"></i> <strong>Filing:</strong> 2023-06-09</span>
+  </div>
+  <div class="card-footer">
+    <span><i class="fas fa-file-alt"></i> <strong>Patent #:</strong> IN20230332123</span>
+    <div class="card-actions">
+      <button class="action-btn view-details"><i class="fas fa-eye"></i> Details</button>
+      <button class="action-btn download-btn"><i class="fas fa-download"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- IPR Card 9 -->
+<div class="ipr-card">
+  <div class="card-header">
+    <h3>Wireless EV Charger</h3>
+    <span class="status-badge status-published"><i class="fas fa-check-circle"></i> Published</span>
+  </div>
+  <p class="card-domain"><i class="fas fa-tag"></i> <strong>Domain:</strong> Renewable Energy</p>
+  <p class="card-description">90% efficient inductive charging with dynamic power allocation for multiple vehicles in parking lots.</p>
+  <div class="card-meta">
+    <span><i class="fas fa-user"></i> <strong>Inventor:</strong> Prof. D. Sen</span>
+    <span><i class="fas fa-calendar-alt"></i> <strong>Filing:</strong> 2023-04-01</span>
+  </div>
+  <div class="card-footer">
+    <span><i class="fas fa-file-alt"></i> <strong>Patent #:</strong> IN20230178990</span>
+    <div class="card-actions">
+      <button class="action-btn view-details"><i class="fas fa-eye"></i> Details</button>
+      <button class="action-btn download-btn"><i class="fas fa-download"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- IPR Card 10 -->
+<div class="ipr-card">
+  <div class="card-header">
+    <h3>AI Tutor Assistant</h3>
+    <span class="status-badge status-published"><i class="fas fa-check-circle"></i> Published</span>
+  </div>
+  <p class="card-domain"><i class="fas fa-tag"></i> <strong>Domain:</strong> Education</p>
+  <p class="card-description">Adaptive learning assistant with multilingual support and real-time progress tracking for personalized education.</p>
+  <div class="card-meta">
+    <span><i class="fas fa-user"></i> <strong>Inventor:</strong> J. Mukherjee</span>
+    <span><i class="fas fa-calendar-alt"></i> <strong>Filing:</strong> 2023-02-17</span>
+  </div>
+  <div class="card-footer">
+    <span><i class="fas fa-file-alt"></i> <strong>Patent #:</strong> IN20230145567</span>
+    <div class="card-actions">
+      <button class="action-btn view-details"><i class="fas fa-eye"></i> Details</button>
+      <button class="action-btn download-btn"><i class="fas fa-download"></i></button>
+    </div>
+  </div>
+</div>
+</section>
+
+  <!-- IPR Cards List -->
+  <section class="ipr-list" id="iprList">
+    <!-- Dynamic IPR cards will be rendered here -->
+  </section>
+  <div id="loginPrompt" style="display:none; text-align:center; margin: 20px;">
+    <p>Please <a href="SignIn.html">sign in</a> to submit and view your IPR submissions.</p>
+  </div>
+
+  <!-- IPR Resources Section -->
+  <section class="ipr-resources" id="resources">
+    <h2 class="section-title">IPR Resources & Guidance</h2>
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>IPR Learning Hub</h3>
+        <p>Comprehensive guides on patents, copyrights, trademarks, and trade secrets with case studies.</p>
+        <a href="#" class="resource-link">Explore Resources <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="resource-card">
+        <div class="resource-icon">
+          <i class="fas fa-file-signature"></i>
+        </div>
+        <h3>Application Templates</h3>
+        <p>Ready-to-use templates for patent applications, copyright forms, and trademark filings.</p>
+        <a href="#" class="resource-link">Download Templates <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="resource-card">
+        <div class="resource-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <h3>Workshops & Webinars</h3>
+        <p>Upcoming training sessions on intellectual property rights and innovation protection.</p>
+        <a href="#" class="resource-link">View Schedule <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="resource-card">
+        <div class="resource-icon">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <h3>Legal Partnerships</h3>
+        <p>Connect with our network of IP attorneys and legal experts for consultation.</p>
+        <a href="#" class="resource-link">Find Experts <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Graph and Monthly Report -->
+  <canvas id="myChart" width="200" height="100"></canvas>
+  <section class="ipr-analytics">
+    <h2 class="section-title">IPR Analytics Dashboard</h2>
+    <div class="analytics-container">
+      <div class="stats-container">
+        <div class="stat-card">
+          <h3><i class="fas fa-file-alt"></i> Monthly Report</h3>
+          <ul class="stat-list">
+            <li><span class="stat-number">14</span> new filings</li>
+            <li><span class="stat-number">9</span> publications</li>
+            <li><span class="stat-number">5</span> under examination</li>
+            <li><span class="stat-number">2</span> grants awarded</li>
+          </ul>
+          <div class="progress-container">
+            <div class="progress-bar" style="width: 78%">
+              <span>78% Success Rate</span>
+            </div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <h3><i class="fas fa-trophy"></i> Top Domains</h3>
+          <ul class="domain-list">
+            <li>
+              <span>AI & Machine Learning</span>
+              <span class="domain-count">28%</span>
+            </li>
+            <li>
+              <span>Green Technology</span>
+              <span class="domain-count">22%</span>
+            </li>
+            <li>
+              <span>Healthcare</span>
+              <span class="domain-count">18%</span>
+            </li>
+            <li>
+              <span>IoT</span>
+              <span class="domain-count">15%</span>
+            </li>
+            <li>
+              <span>Others</span>
+              <span class="domain-count">17%</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IPR Submission Form -->
+  <section class="submit-section" id="submit-section" style="display:none;">
+    <div class="submit-container">
+      <div class="submit-info">
+        <h2><i class="fas fa-upload"></i> Submit Your Innovation</h2>
+        <p>Protect your intellectual property by filing through our streamlined submission process. Our team will guide you through each step.</p>
+        <div class="benefits-list">
+          <h3>Why File With Us?</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Expert review before submission</li>
+            <li><i class="fas fa-check-circle"></i> Reduced application fees</li>
+            <li><i class="fas fa-check-circle"></i> Faster processing times</li>
+            <li><i class="fas fa-check-circle"></i> Ongoing status updates</li>
+            <li><i class="fas fa-check-circle"></i> Commercialization support</li>
+          </ul>
+        </div>
+      </div>
+      <div class="submit-form">
+        <form id="iprSubmissionForm">
+          <div id="submissionStatus" style="margin-bottom: 1rem; font-weight: 600;"></div>
+          <div class="form-step active" id="step1">
+            <h3>Basic Information</h3>
+            <div class="form-group">
+              <label for="iprTitle">IPR Title*</label>
+              <input type="text" id="iprTitle" placeholder="Name of your innovation" required />
+            </div>
+            <div class="form-group">
+              <label for="iprType">IPR Type*</label>
+              <select id="iprType" required>
+                <option value="">Select type</option>
+                <option value="patent">Patent</option>
+                <option value="copyright">Copyright</option>
+                <option value="trademark">Trademark</option>
+                <option value="design">Design Registration</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="iprDomain">Primary Domain*</label>
+              <select id="iprDomain" required>
+                <option value="">Select domain</option>
+                <option value="ai">Artificial Intelligence</option>
+                <option value="biotech">Biotechnology</option>
+                <option value="energy">Energy</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="iot">IoT</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="software">Software</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="iprAbstract">Abstract*</label>
+              <textarea id="iprAbstract" rows="4" placeholder="Brief description of your innovation (200-300 words)" required></textarea>
+            </div>
+            <div class="form-navigation">
+              <button type="button" class="btn-next" onclick="nextStep(1)">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+          
+          <div class="form-step" id="step2">
+            <h3>Inventor Details</h3>
+            <div class="form-group">
+              <label for="inventorName">Inventor Name(s)*</label>
+              <input type="text" id="inventorName" placeholder="Full name(s) of inventor(s)" required />
+            </div>
+            <div class="form-group">
+              <label for="inventorEmail">Contact Email*</label>
+              <input type="email" id="inventorEmail" placeholder="Primary contact email" required />
+            </div>
+            <div class="form-group">
+              <label for="inventorPhone">Contact Phone</label>
+              <input type="tel" id="inventorPhone" placeholder="Contact phone number" />
+            </div>
+            <div class="form-group">
+              <label for="inventorAffiliation">Affiliation*</label>
+              <input type="text" id="inventorAffiliation" placeholder="University/Company name" required />
+            </div>
+            <div class="form-navigation">
+              <button type="button" class="btn-prev" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Previous</button>
+              <button type="button" class="btn-next" onclick="nextStep(2)">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+          
+          <div class="form-step" id="step3">
+            <h3>Document Upload</h3>
+            <div class="form-group">
+              <label for="iprDocuments">Supporting Documents*</label>
+              <div class="file-upload">
+                <input type="file" id="iprDocuments" multiple required />
+                <label for="iprDocuments" class="file-upload-label">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <span>Click to upload or drag and drop</span>
+                  <small>PDF, DOCX, or images (Max 25MB)</small>
+                </label>
+              </div>
+              <div class="file-requirements">
+                <h4>Required Documents:</h4>
+                <ul>
+                  <li>Detailed description (PDF)</li>
+                  <li>Claims statement</li>
+                  <li>Drawings/diagrams (if applicable)</li>
+                  <li>Abstract summary</li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="termsAgreement" required />
+              <label for="termsAgreement">I agree to the <a href="#">terms and conditions</a> and confirm that all information provided is accurate.*</label>
+            </div>
+            <div class="form-navigation">
+              <button type="button" class="btn-prev" onclick="prevStep(3)"><i class="fas fa-arrow-left"></i> Previous</button>
+              <button type="submit" class="btn-submit">Submit Application <i class="fas fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question">
+          What types of IP can I file through this portal?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Our portal supports filings for patents (utility and design), copyrights, trademarks, and industrial designs. We also provide guidance on trade secrets protection, though those don't require formal registration.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does the review process take?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Our internal review typically takes 2-3 weeks. After submission to the patent office, publication usually occurs within 18 months. The entire process from filing to grant averages 3-5 years depending on the technology domain and jurisdiction.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          What are the costs involved in filing?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Costs vary by IP type and jurisdiction. For Indian patents, our institutional support covers 80% of filing fees. Typical costs are:
+            <ul>
+              <li>Patent filing: ₹2,500-5,000 (after subsidy)</li>
+              <li>Copyright registration: ₹1,000-2,000</li>
+              <li>Trademark registration: ₹2,000-4,000</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I file international patents through this portal?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, we facilitate PCT (Patent Cooperation Treaty) applications for international protection. After initial filing in India, we can help you navigate the international filing process through our global partner network.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          How do I check the status of my application?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>All applications receive real-time status updates in your dashboard. You'll also receive email notifications at key milestones. For detailed examination reports, our team will contact you with guidance on responding to office actions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Innovation Portal</h3>
+        <p>Empowering researchers, inventors, and entrepreneurs to protect and commercialize their intellectual property.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-researchgate"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Research Database</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> IPR Portfolio</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Innovation Challenges</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Startup Incubator</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> IPR Guidelines</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Application Templates</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Fee Structure</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Webinar Archive</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Innovation Center, Tech Park, Kolkata - 700091</li>
+          <li><i class="fas fa-phone"></i> +91 77 1234 5678</li>
+          <li><i class="fas fa-envelope"></i> ipr@innovationportal.edu</li>
+          <li><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p>&copy; 2025 Innovation Portal. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-icon success">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3>Submission Successful!</h3>
+      <p>Your IPR application has been received. Our team will review your submission and contact you within 3-5 business days.</p>
+      <p>Tracking ID: <strong>IPR2023-05678</strong></p>
+      <button class="btn-modal" onclick="closeModal()">Continue to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- Include Chart.js -->
+  <script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Filed', 'Published', 'Granted'],
+        datasets: [{
+          label: 'IPR Status',
+          data: [14, 9, 2],
+          backgroundColor: ['#F2BE22', '#42C2FF', '#60D394']
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 1
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top'
+          },
+          title: {
+            display: true,
+            text: 'IPR Status Overview',
+            font: {
+              size: 18,
+              weight: 'bold'
+            }
+          }
+        }
+      }
+    });
+  </script>
+<script>
+  function filterIPRCards() {
+    const searchInput = document.getElementById('searchBar').value.toLowerCase();
+    const iprCards = document.querySelectorAll('.ipr-card');
+
+    iprCards.forEach(card => {
+      const title = card.querySelector('.card-header h3')?.textContent.toLowerCase() || '';
+      const domain = card.querySelector('.card-domain')?.textContent.toLowerCase() || '';
+      const description = card.querySelector('.card-description')?.textContent.toLowerCase() || '';
+      const inventor = card.querySelector('.card-meta span:first-child')?.textContent.toLowerCase() || '';
+
+      if (
+        title.includes(searchInput) ||
+        domain.includes(searchInput) ||
+        description.includes(searchInput) ||
+        inventor.includes(searchInput)
+      ) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+  <script>
+    // Existing filterIPRCards function
+    function filterIPRCards() {
+      const searchInput = document.getElementById('searchBar').value.toLowerCase();
+      const iprCards = document.querySelectorAll('.ipr-card');
+
+      iprCards.forEach(card => {
+        const title = card.querySelector('.card-header h3')?.textContent.toLowerCase() || '';
+        const domain = card.querySelector('.card-domain')?.textContent.toLowerCase() || '';
+        const description = card.querySelector('.card-description')?.textContent.toLowerCase() || '';
+        const inventor = card.querySelector('.card-meta span:first-child')?.textContent.toLowerCase() || '';
+
+        if (
+          title.includes(searchInput) ||
+          domain.includes(searchInput) ||
+          description.includes(searchInput) ||
+          inventor.includes(searchInput)
+        ) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // New code to toggle submission form visibility with login check and logout button
+    document.addEventListener('DOMContentLoaded', () => {
+      const submitIprBtn = document.querySelector('a.btn-primary[href="#submit-section"]');
+      const submitSection = document.getElementById('submit-section');
+
+      // Show submission form automatically if logged in
+      const token = localStorage.getItem('token');
+      if (token && submitSection) {
+        submitSection.style.display = 'block';
+      }
+
+      // Show or hide static IPR cards and login prompt based on login status
+-      const staticIprList = document.querySelector('section.ipr-list');
++      const staticIprList = document.getElementById('staticIprList');
+      const loginPrompt = document.getElementById('loginPrompt');
+      if (token) {
+        if (staticIprList) staticIprList.style.display = 'block';
+        if (loginPrompt) loginPrompt.style.display = 'none';
+      } else {
+        if (staticIprList) staticIprList.style.display = 'none';
+        if (loginPrompt) loginPrompt.style.display = 'block';
+      }
+
+      if (submitIprBtn && submitSection) {
+        submitIprBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const token = localStorage.getItem('token');
+          if (!token) {
+            // Redirect to SignIn page if not logged in
+            window.location.href = 'SignIn.html';
+            return;
+          }
+          // Show or hide the submission form if logged in
+          if (submitSection.style.display === 'none' || submitSection.style.display === '') {
+            submitSection.style.display = 'block';
+            submitSection.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            submitSection.style.display = 'none';
+          }
+        });
+      }
+
+      // Show logout button and hide Sign In link if logged in
+      const logoutButton = document.getElementById('logoutButton');
+      const signInLink = document.getElementById('signInLink');
+      if (token) {
+        if (logoutButton) logoutButton.style.display = 'inline-block';
+        if (signInLink) signInLink.style.display = 'none';
+      } else {
+        if (logoutButton) logoutButton.style.display = 'none';
+        if (signInLink) signInLink.style.display = 'inline-block';
+      }
+
+      // Logout button click handler
+      if (logoutButton) {
+        logoutButton.addEventListener('click', () => {
+          localStorage.removeItem('token');
+          window.location.href = 'index.html';
+        });
+      }
+    });
+  </script>
+  <script>
+    // Functions to handle multi-step form navigation
+    function nextStep(currentStep) {
+      const current = document.getElementById('step' + currentStep);
+      const next = document.getElementById('step' + (currentStep + 1));
+      if (current && next) {
+        current.classList.remove('active');
+        next.classList.add('active');
+      }
+    }
+
+    function prevStep(currentStep) {
+      const current = document.getElementById('step' + currentStep);
+      const prev = document.getElementById('step' + (currentStep - 1));
+      if (current && prev) {
+        current.classList.remove('active');
+        prev.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>

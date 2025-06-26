@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unified Web Platform</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header (unchanged) -->
+  <header class="main-header">
+    <a href="index.html" class="home-icon">🏠</a>
+    
+    <div class="top-links">
+      <a href="AboutUs.html">About Us</a>
+      <a href="SignIn.html">Sign In</a>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav class="popup-menu" id="popupMenu">
+      <a href="research.html">Research</a>
+      <a href="ipr.html">IPR</a>
+      <a href="innovation.html">Innovation</a>
+      <a href="StartUp.html">Startups</a>
+    </nav>
+  </header>
+
+  <!-- Enhanced Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Unified Web Platform</h1>
+      <p>A one-stop portal for Research, IPR, Innovation, and Start-ups</p>
+      <div class="hero-buttons">
+        <a href="research.html" class="cta-btn">Explore Research →</a>
+        <a href="#how-it-works" class="secondary-btn">How It Works ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Platform Overview Section -->
+  <section class="platform-overview">
+    <div class="overview-content">
+      <h2>Platform Overview</h2>
+      <p class="overview-description">
+        Our Unified Web Platform integrates all aspects of academic and entrepreneurial development 
+        into one seamless experience. From initial research to patent filing, innovation development 
+        to startup incubation, we provide the tools and resources to bring ideas to life.
+      </p>
+      <div class="overview-bar">
+        <div class="bar-item"><strong>150+</strong> Research Projects</div>
+        <div class="bar-item"><strong>75</strong> Patents Filed</div>
+        <div class="bar-item"><strong>120</strong> Innovations</div>
+        <div class="bar-item"><strong>45</strong> Incubated Startups</div>
+      </div>
+      <a href="AboutUs.html" class="learn-more">Learn more about our platform →</a>
+    </div>
+  </section>
+
+  <!-- New How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps-container">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Register</h3>
+        <p>Create your account to access all platform features</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Choose Your Path</h3>
+        <p>Select from Research, IPR, Innovation or Startup modules</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Submit Your Work</h3>
+        <p>Upload your projects, patents or startup ideas</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Get Support</h3>
+        <p>Receive guidance and resources to move forward</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Modules Section (unchanged structure) -->
+  <section class="key-modules">
+    <h2>Key Modules</h2>
+    <div class="modules-bar">
+      <div class="module-bar-item">
+        <div class="icon">📄</div>
+        <div class="details">
+          <h4>IPR Section</h4>
+          <p>Protect your intellectual property with our guided process</p>
+          <a href="ipr.html" class="module-btn">Explore IPR</a>
+        </div>
+      </div>
+      <div class="module-bar-item">
+        <div class="icon">💡</div>
+        <div class="details">
+          <h4>Innovation Hub</h4>
+          <p>Transform ideas into tangible innovations</p>
+          <a href="innovation.html" class="module-btn">Explore Innovation</a>
+        </div>
+      </div>
+      <div class="module-bar-item">
+        <div class="icon">🚀</div>
+        <div class="details">
+          <h4>Startup Ecosystem</h4>
+          <p>Launch and grow your startup with our support</p>
+          <a href="StartUp.html" class="module-btn">Explore Startups</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const exploreIprBtn = document.querySelector('a.module-btn[href="ipr.html"]');
+      if (exploreIprBtn) {
+        exploreIprBtn.addEventListener('click', (e) => {
+          const token = localStorage.getItem('token');
+          if (!token) {
+            e.preventDefault();
+            window.location.href = 'SignIn.html';
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- New Testimonials Section -->
+  <section class="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonial-container">
+      <div class="testimonial">
+        <p>"This platform transformed my research into a patented product!"</p>
+        <div class="author">- Dr. Sarah Johnson</div>
+      </div>
+      <div class="testimonial">
+        <p>"The startup resources helped us secure our first round of funding."</p>
+        <div class="author">- Raj Patel, Founder</div>
+      </div>
+      <div class="testimonial">
+        <p>"Incredible network of innovators and mentors all in one place."</p>
+        <div class="author">- Maria Gonzalez</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Overview (unchanged structure) -->
+  <section class="features">
+    <h2>Core Features</h2>
+    <div class="features-container">
+      <div class="feature-card"><h3>Research</h3><p>Manage & track research projects.</p></div>
+      <div class="feature-card"><h3>IPR</h3><p>File & monitor intellectual properties.</p></div>
+      <div class="feature-card"><h3>Innovation</h3><p>Submit and view innovative ideas.</p></div>
+      <div class="feature-card"><h3>Startups</h3><p>Support & showcase your startup ideas.</p></div>
+    </div>
+  </section>
+
+  <!-- New Contact Us Section -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2>Contact Us</h2>
+        <p>Have questions? Get in touch with our team</p>
+        <div class="contact-method">
+          <i class="fas fa-envelope"></i>
+          <span>contact@unifiedplatform.edu</span>
+        </div>
+        <div class="contact-method">
+          <i class="fas fa-phone"></i>
+          <span>+1 (555) 123-4567</span>
+        </div>
+        <div class="contact-method">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Innovation Center, Tech Park, Kolkata, India</span>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (unchanged structure) -->
+  <footer>
+    <div class="footer-links">
+      <div>
+        <h4>Quick Actions</h4>
+        <ul>
+          <li><a href="#">Submit Project</a></li>
+          <li><a href="#">Apply for Patent</a></li>
+          <li><a href="#">Upload Startup Info</a></li>
+          <li><a href="#">Contact Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>References</h4>
+        <ul>
+          <li><a href="#">NPTEL Research Guide</a></li>
+          <li><a href="#">Startup India</a></li>
+          <li><a href="#">WIPO Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our Location</h4>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235014.24838756043!2d88.18289812994207!3d22.53542702586668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02771af9a46bff%3A0x191233b6f7555421!2sTechno%20Main%20Salt%20Lake!5e0!3m2!1sen!2sin!4v1616578296073!5m2!1sen!2sin"
+          width="250" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Unified Web Platform. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start-up Ecosystem | Innovation Hub</title>
+    <link rel="stylesheet" href="css/StartUp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                <h1>Start-up Ecosystem</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ipr.html">IPR</a></li>
+                    <li><a href="research.html" class="active">Research</a></li>
+                    <li><a href="innovation.html">Innovation</a></li>
+                    <li><a href="#contact" class="cta-button">Get in Touch</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h2>Launch Your Dream Start-up</h2>
+                <p class="subtitle">Connect with investors, mentors, and co-founders in our thriving ecosystem</p>
+                <div class="hero-buttons">
+                    <button id="registerBtn" class="primary-btn">Register Your Start-up</button>
+                    <button class="secondary-btn">Explore Opportunities</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/Images/Start-Up-Front.png" alt="Startup team working" loading="lazy">
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <h2 class="section-title">Our Ecosystem in Numbers</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="stat-number" data-count="150">0</h3>
+                    <p class="stat-label">Start-ups Registered</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="stat-number" data-count="50">0</h3>
+                    <p class="stat-label">Investors Network</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="stat-number" data-count="30">0</h3>
+                    <p class="stat-label">Successful Exits</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="stat-number" data-count="200">0</h3>
+                    <p class="stat-label">Mentors Available</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="startup-showcase">
+            <div class="section-header">
+                <h2 class="section-title">Featured Start-ups</h2>
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="tech">Tech</button>
+                    <button class="filter-btn" data-filter="health">Health</button>
+                    <button class="filter-btn" data-filter="fintech">Fintech</button>
+                </div>
+            </div>
+            <div class="startup-grid" id="startupGrid">
+                <!-- Start-ups will be added here by JavaScript -->
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The Start-up Ecosystem provided us with invaluable connections and resources that helped us scale from 0 to 1 million users in just 18 months."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson">
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, TechGenius</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- More testimonials will be added by JS -->
+            </div>
+        </section>
+
+        <section class="registration-section" id="registration">
+            <div class="form-container">
+                <h2 class="section-title">Start-up Registration</h2>
+                <p class="section-subtitle">Join our growing ecosystem today</p>
+                <form id="startupForm" class="startup-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Start-up Name" required>
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Start-up Description (Max 200 words)" maxlength="200" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Founder Name" required>
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Contact Email" required>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Select Industry</option>
+                            <option value="tech">Technology</option>
+                            <option value="health">Healthcare</option>
+                            <option value="fintech">Fintech</option>
+                            <option value="education">Education</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="sustainability">Sustainability</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="primary-btn">Register Now <i class="fas fa-arrow-right"></i></button>
+                        <p class="form-note">We'll never share your information without your permission</p>
+                    </div>
+                </form>
+            </div>
+            <div class="benefits-container">
+                <h3>Why Register With Us?</h3>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> Access to our investor network</li>
+                    <li><i class="fas fa-check-circle"></i> Mentorship from industry leaders</li>
+                    <li><i class="fas fa-check-circle"></i> Co-working space discounts</li>
+                    <li><i class="fas fa-check-circle"></i> Monthly pitch events</li>
+                    <li><i class="fas fa-check-circle"></i> Legal and IP support</li>
+                    <li><i class="fas fa-check-circle"></i> Marketing and PR opportunities</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="partners-section">
+            <h2 class="section-title">Our Partners</h2>
+            <div class="partners-grid">
+                <img src="https://via.placeholder.com/150x60?text=VC+Firm" alt="Partner 1" loading="lazy">
+                <img src="https://via.placeholder.com/150x60?text=Tech+Inc" alt="Partner 2" loading="lazy">
+                <img src="https://via.placeholder.com/150x60?text=Angel+Network" alt="Partner 3" loading="lazy">
+                <img src="https://via.placeholder.com/150x60?text=Gov+Fund" alt="Partner 4" loading="lazy">
+                <img src="https://via.placeholder.com/150x60?text=Law+Firm" alt="Partner 5" loading="lazy">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="logo">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Start-up Ecosystem</h3>
+                </div>
+                <p>Empowering entrepreneurs to build the next generation of innovative companies.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="ipr.html">IPR Services</a></li>
+                    <li><a href="innovation.html">Innovation Lab</a></li>
+                    <li><a href="#registration">Start-up Registration</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact" id="contact">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Innovation Hub, Silicon Street</li>
+                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> contact@startupecosystem.com</li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <p>Subscribe to our newsletter for the latest opportunities</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Start-up Ecosystem. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="startup.js"></script>
+</body>
+</html>

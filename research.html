@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research | Unified Platform</title>
+
+  <!-- Font Awesome for Home Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS & JS -->
+  <link rel="stylesheet" href="/css/research.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="research.js"></script>
+  <script defer src="research_search.js"></script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo"> 
+          <a href="index.html" class="home-icon" title="Home">
+            <i class="fas fa-home"></i>
+          </a>      
+        <span>NOVANEST</span>
+      </div>
+      <nav class="nav-links">
+        <a href="research.html">Research</a>
+        <a href="ipr.html">IPR</a>
+        <a href="innovation.html">Innovation</a>
+        <a href="StartUp.html">Startup</a>
+        <a href="AboutUs.html">About Us</a>
+        <a href="signin.html">Sign In</a>
+      </nav>
+    </div>
+  </header>
+
+   <!-- Search Section -->
+   <section class="section" id="search-section">
+    <h2>Search Research</h2>
+    <form id="search-form">
+      <input type="text" placeholder="Search by topic, researcher, domain..." name="query" />
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Research Feature Cards Section -->
+    <section class="section" id="feature-cards">
+      <h1>Featured Research Projects</h1>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h2>AI in Agriculture</h2>
+          <p><strong>By:</strong> Dr. Meera Singh | CS</p>
+          <p>Improving crop yield prediction using neural networks and weather-based analytics.</p>
+        </div>
+        <div class="feature-card">
+          <h2>Smart Traffic</h2>
+          <p><strong>By:</strong> Dr. Ramesh Jain | ECE</p>
+          <p>AI-based traffic prediction for smoother urban mobility using IoT & computer vision.</p>
+        </div>
+        <div class="feature-card">
+          <h2>Green Architecture</h2>
+          <p><strong>By:</strong> Arch. Leela Das | Architecture</p>
+          <p>Exploring building-integrated solar solutions for sustainable campus development.</p>
+        </div>
+        <div class="feature-card">
+          <h2>Deep Fake Detection</h2>
+          <p><strong>By:</strong> Ankit Roy | IT</p>
+          <p>Real-time fake video detection using temporal and facial anomaly modeling.</p>
+        </div>
+        <div class="feature-card">
+          <h2>eHealth Monitoring</h2>
+          <p><strong>By:</strong> Dr. Sushil Nair | BioTech</p>
+          <p>AI-powered wearable monitoring for early diagnosis of cardiac abnormalities.</p>
+        </div>
+        <div class="feature-card">
+          <h2>Cyber Forensics</h2>
+          <p><strong>By:</strong> S. Banerjee | CSE</p>
+          <p>Using AI to trace cybercrime evidence from digital trails across platforms.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section class="section" id="quotes">
+      <h2>Inspiration Corner</h2>
+      <div class="quotes-box">
+        <blockquote id="quote-display">
+          “Science is a beautiful gift to humanity; we should not distort it.” – A.P.J. Abdul Kalam
+        </blockquote>
+      </div>
+    </section>
+
+   
+
+    <!-- Proposal Submission Section -->
+    <section class="section" id="submit-proposal">
+      <h2>Submit Your Research Proposal</h2>
+      <form enctype="multipart/form-data">
+        <label for="proposal-title">Title:</label>
+        <input type="text" id="proposal-title" name="title" required>
+
+        <label for="research-file">Upload Proposal (PDF/DOCX):</label>
+        <input type="file" id="research-file" name="file" accept=".pdf, .docx" required>
+
+        <button type="submit">Submit Proposal</button>
+      </form>
+    </section>
+    <!-- Dashboard Section -->
+<section class="section" id="dashboard">
+  <h2>Research Insights Dashboard</h2>
+  <div class="dashboard-container">
+    <canvas id="researchPieChart"></canvas>
+  </div>
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <p>© 2025 Unified Research Portal</p>
+        <p>Department of Innovation & Research</p>
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a> |
+        <a href="terms.html">Terms</a> |
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

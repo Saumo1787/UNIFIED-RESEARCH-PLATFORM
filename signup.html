@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | Innovation Hub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/SignIn.css" />
+</head>
+<body>
+  <div class="signin-container">
+    <div class="signin-left">
+      <div class="logo-container">
+        <i class="fas fa-lightbulb logo-icon"></i>
+        <h1>Innovation Hub</h1>
+      </div>
+
+      <div class="animated-shapes">
+        <div class="shape circle"></div>
+        <div class="shape triangle"></div>
+        <div class="shape square"></div>
+      </div>
+
+      <div class="welcome-message">
+        <h2>Join Us!</h2>
+        <p>Create your account to start your innovation journey with us.</p>
+      </div>
+
+      <div class="signin-footer">
+        <p>Already have an account? <a href="SignIn.html">Sign in</a></p>
+        <a href="index.html" class="home-link">← Return home</a>
+      </div>
+    </div>
+
+    <div class="signin-right">
+      <div class="signin-form-container">
+        <div class="form-header">
+          <h2>Sign Up</h2>
+          <p>Fill in the details to create your account</p>
+        </div>
+
+        <form class="signin-form" id="signupForm">
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <div class="input-container">
+              <i class="fas fa-user input-icon"></i>
+              <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required />
+              <div class="focus-border"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-container">
+              <i class="fas fa-envelope input-icon"></i>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required />
+              <div class="focus-border"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-container">
+              <i class="fas fa-lock input-icon"></i>
+              <input type="password" id="password" name="password" placeholder="Enter your password" required />
+              <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                <i class="fas fa-eye"></i>
+              </button>
+              <div class="focus-border"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <div class="input-container">
+              <i class="fas fa-lock input-icon"></i>
+              <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required />
+              <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                <i class="fas fa-eye"></i>
+              </button>
+              <div class="focus-border"></div>
+            </div>
+          </div>
+
+          <button type="submit" class="signin-button">
+            <span class="button-text">Sign Up</span>
+            <span class="button-icon">
+              <i class="fas fa-arrow-right"></i>
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Toggle password visibility for all toggle-password buttons
+      const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+      togglePasswordButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const input = this.parentElement.querySelector('input');
+          const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+          input.setAttribute('type', type);
+          this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+      });
+
+      // Signup form submission with API call
+      const signupForm = document.getElementById('signupForm');
+      signupForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const submitButton = this.querySelector('.signin-button');
+
+        const name = document.getElementById('fullname').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+
+        if (!name || !email || !password) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        submitButton.classList.add('loading');
+        submitButton.querySelector('.button-text').textContent = 'Creating Account...';
+
+        try {
+          const response = await fetch('/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password })
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            alert('Signup failed: ' + errorText);
+            submitButton.classList.remove('loading');
+            submitButton.querySelector('.button-text').textContent = 'Sign Up';
+            return;
+          }
+
+          submitButton.classList.remove('loading');
+          submitButton.querySelector('.button-text').textContent = 'Sign Up Successful!';
+          submitButton.querySelector('.button-icon i').className = 'fas fa-check';
+
+          // Redirect after success
+          setTimeout(() => {
+            window.location.href = 'SignIn.html';
+          }, 1000);
+        } catch (error) {
+          alert('An error occurred during signup. Please try again.');
+          submitButton.classList.remove('loading');
+          submitButton.querySelector('.button-text').textContent = 'Sign Up';
+        }
+      });
+
+      // Input focus effects
+      const inputs = document.querySelectorAll('input');
+      inputs.forEach(input => {
+        input.addEventListener('focus', function () {
+          this.parentElement.querySelector('.focus-border').classList.add('active');
+        });
+
+        input.addEventListener('blur', function () {
+          this.parentElement.querySelector('.focus-border').classList.remove('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
